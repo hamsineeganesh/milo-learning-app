@@ -1,16 +1,32 @@
-# React + Vite
+# MILO — Neurodivergent Children's Learning Adventure
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A gentle, accessible, neurodivergent-friendly educational game featuring illustrated animations, companion tracking with Milo the puppy, and a comprehensive caregiver dashboard.
 
-Currently, two official plugins are available:
+## 🌸 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. **Caregiver & Child Flow**:
+   - Initial Caregiver setup tile and dashboard.
+   - Comprehensive caregiver tools: Child Profile, Progress & Growth tracking, Personalization settings, and gentle Recommendations.
+2. **Character Selection**:
+   - 4 unique illustrated adventure companions (Mira, Piper, Kai, Leo).
+   - Puppy Milo stays with the selected character throughout every screen.
+3. **Vertically Scrollable Level Map**:
+   - Fitted seamlessly to laptop screen widths with a hidden scrollbar.
+   - Dynamic player marker displaying the chosen character and Milo beside the unlocked level.
+4. **Illustrated Story Animation — Level 1: "The Little Seed"**:
+   - High-fidelity garden scene illustration.
+   - Synchronized character dialogue bubbles with active speaker indicators (Girl on the left, Grandpa on the right).
+   - Interactive planting, watering can animations, and multi-stage seed growth.
+   - Positive reinforcement badge and level progression.
 
-## React Compiler
+## 🚀 How to Run Locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Simply open `index.html` in any modern web browser, or serve it using any local static server:
 
-## Expanding the ESLint configuration
+```bash
+# Using Python
+python -m http.server 8080
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Or with VS Code Live Server extension
+```
+Visit `http://localhost:8080/index.html` to play!

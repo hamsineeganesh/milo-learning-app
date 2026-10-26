@@ -1,13 +1,980 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MILO | Your Learning Adventure</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIA & Milo's Learning Adventure — The Little Seed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ================= VIEW 1: HOMEPAGE (PDF Page 1 & 3) ================= -->
+  <section class="screen-view active" id="viewHome" aria-label="MIA Welcome Homepage">
+    <div class="home-shell">
+      <header class="home-topbar">
+        <div class="mia-logo">
+          <span class="logo-circle">MIA</span>
+          <span class="logo-dot"></span>
+        </div>
+        <div class="home-top-controls">
+          <button class="top-pill-btn" id="homeThemeBtn" aria-label="Toggle theme comfort">
+            <span class="pill-icon">☀️</span>
+            <span id="homeThemeLabel">Warm Light</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="home-grid">
+        <!-- Left Hero Area -->
+        <div class="home-hero">
+          <div class="gentle-badge">
+            <span class="sparkle-icon">🌱</span>
+            <span>A GENTLE WORLD TO EXPLORE</span>
+          </div>
+          <h1 class="hero-headline">
+            MIA<span class="dot-accent">.</span><br>
+            <span class="hero-subline">Your learning adventure.</span>
+          </h1>
+          <p class="hero-description">
+            A calm storybook world where every curious step counts and your character learns right alongside you.
+          </p>
+          <div class="hero-pills">
+            <span class="pill"><span class="pill-bullet">🌿</span> Go at your pace</span>
+            <span class="pill"><span class="pill-bullet">⭐</span> Celebrate small wins</span>
+            <span class="pill"><span class="pill-bullet">🐕</span> Milo walks with you</span>
+          </div>
+        </div>
+
+        <!-- Right Choice Area -->
+        <div class="home-card-wrapper">
+          <div class="path-choice-card">
+            <div class="path-card-header">
+              <span class="eyebrow-small">WHO IS EXPLORING?</span>
+              <h2>Choose a path</h2>
+            </div>
+
+            <div class="path-tiles">
+              <!-- Child Tile -->
+              <div class="path-tile child-tile" id="homeChildTile" role="button" tabindex="0" aria-label="Start child adventure">
+                <div class="tile-badge-icon child-avatar-wrap">
+                  <img src="assets/avatar_mira.jpg" alt="Child companion avatar" id="homeChildAvatar" class="home-tile-avatar">
+                </div>
+                <div class="tile-text-wrap">
+                  <span class="tile-role-tag">CHILD</span>
+                  <strong class="tile-main-title">Start adventure</strong>
+                  <span class="tile-status-hint" id="homeChildHint">Caretaker unlocks this</span>
+                </div>
+                <span class="tile-arrow-icon" aria-hidden="true">➔</span>
+              </div>
+
+              <!-- Caretaker Tile -->
+              <div class="path-tile caregiver-tile" id="homeCaregiverTile" role="button" tabindex="0" aria-label="Open caretaker dashboard">
+                <div class="tile-badge-icon caretaker-avatar-wrap">
+                  <span class="caretaker-symbol">👥</span>
+                </div>
+                <div class="tile-text-wrap">
+                  <span class="tile-role-tag">CARETAKER</span>
+                  <strong class="tile-main-title">Caretaker login</strong>
+                  <span class="tile-status-hint">Create child profile ➔</span>
+                </div>
+                <span class="tile-arrow-icon" aria-hidden="true">➔</span>
+              </div>
+            </div>
+
+            <p class="path-footer-note">A calm adventure ready for curious minds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 2: CAREGIVER DASHBOARD (PDF Page 1, 2, 3) ================= -->
+  <section class="screen-view" id="viewCaregiver" aria-label="Caregiver Learning and Growth Dashboard">
+    <div class="caregiver-layout">
+      <!-- Sidebar -->
+      <aside class="caregiver-sidebar">
+        <div class="sidebar-brand">
+          <div class="mia-logo-sm">
+            <span class="logo-circle-sm">MIA</span>
+            <span class="logo-brand-text">MIA Care</span>
+          </div>
+          <span class="sidebar-tag">HOMEPAGE SUPPORT</span>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Dashboard navigation">
+          <button class="nav-item active" data-tab="tab-overview" id="navTabOverview">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </button>
+          <button class="nav-item" data-tab="tab-profile" id="navTabProfile">
+            <span class="nav-icon">👤</span>
+            <span>Child Profile</span>
+          </button>
+          <button class="nav-item" data-tab="tab-progress" id="navTabProgress">
+            <span class="nav-icon">📈</span>
+            <span>Progress & Growth</span>
+          </button>
+          <button class="nav-item" data-tab="tab-recommendations" id="navTabRecommendations">
+            <span class="nav-icon">💡</span>
+            <span>Recommendations</span>
+          </button>
+          <button class="nav-item" data-tab="tab-settings" id="navTabSettings">
+            <span class="nav-icon">⚙️</span>
+            <span>Settings</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="btn-return-home" id="caregiverReturnHomeBtn">
+            <span>←</span> Back to Homepage
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Dashboard Area -->
+      <main class="caregiver-main">
+        <!-- Caregiver Top Header -->
+        <header class="caregiver-header">
+          <div>
+            <span class="eyebrow-accent">CARETAKER MODE</span>
+            <h1 class="caregiver-title">Learning & growth</h1>
+          </div>
+          <div class="caregiver-header-actions">
+            <button class="btn btn-primary open-child-btn" id="openChildModeBtn">
+              <span class="btn-icon">🚀</span> Open Child Mode
+            </button>
+          </div>
+        </header>
+
+        <!-- TAB 1: OVERVIEW -->
+        <div class="caregiver-tab-content active" id="tab-overview">
+          <section class="caregiver-card">
+            <div class="section-header-row">
+              <div>
+                <span class="eyebrow-dim">CARETAKER HOME</span>
+                <h2>Your Children</h2>
+                <p class="section-desc">Each child has their own adventure, character companion and progress.</p>
+              </div>
+              <button class="btn btn-soft add-child-btn" id="addChildBtn">+ Add Child</button>
+            </div>
+
+            <!-- Child Card -->
+            <div class="child-summary-card" id="caregiverChildSummaryCard">
+              <div class="child-card-avatar-wrap">
+                <img src="assets/avatar_mira.jpg" alt="Child profile avatar" id="caregiverChildAvatar" class="child-card-avatar">
+              </div>
+              <div class="child-card-info">
+                <div class="child-card-header">
+                  <strong class="child-name-display" id="caregiverChildName">Milo</strong>
+                  <span class="child-meta-pill" id="caregiverChildMeta">Age 10 • Level 1</span>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-label-row">
+                    <span>Level 1: The Little Seed</span>
+                    <span id="caregiverProgressPercent">25%</span>
+                  </div>
+                  <div class="progress-track-dash">
+                    <div class="progress-fill-dash" id="caregiverProgressFill" style="width: 25%;"></div>
+                  </div>
+                </div>
+                <div class="child-card-actions">
+                  <button class="btn btn-sm btn-soft" id="editProfileQuickBtn">Edit Profile</button>
+                  <button class="btn btn-sm btn-outline" id="switchCharQuickBtn">Change Character</button>
+                  <button class="btn btn-sm btn-gold" id="jumpToMapBtn">View Map</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Shape the adventure settings grid -->
+          <section class="caregiver-card mt-4">
+            <div class="section-header-row">
+              <div>
+                <span class="eyebrow-dim">SETTINGS</span>
+                <h2>Shape the adventure together</h2>
+                <p class="section-desc">Changes apply for the next Child Mode session.</p>
+              </div>
+            </div>
+
+            <div class="settings-two-col">
+              <div class="setting-box">
+                <div class="setting-box-header">
+                  <span class="setting-icon">🔊</span>
+                  <strong>Sound & narration</strong>
+                </div>
+                <div class="setting-row">
+                  <label for="settingVoiceNarration">Voice narration</label>
+                  <input type="checkbox" id="settingVoiceNarration" checked class="toggle-switch">
+                </div>
+                <div class="setting-row">
+                  <label for="settingSoundEffects">Sound effects</label>
+                  <input type="checkbox" id="settingSoundEffects" checked class="toggle-switch">
+                </div>
+              </div>
+
+              <div class="setting-box">
+                <div class="setting-box-header">
+                  <span class="setting-icon">👁️</span>
+                  <strong>Visual comfort</strong>
+                </div>
+                <div class="setting-row">
+                  <label for="settingVisualComfort">Theme</label>
+                  <select id="settingVisualComfort" class="select-input">
+                    <option value="warm">Warm light</option>
+                    <option value="calm">Calm pastel</option>
+                    <option value="soft">Soft contrast</option>
+                  </select>
+                </div>
+                <div class="setting-row">
+                  <label for="settingStimulation">Visual stimulation</label>
+                  <select id="settingStimulation" class="select-input">
+                    <option value="gentle">Gentle</option>
+                    <option value="balanced">Balanced</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="setting-box">
+                <div class="setting-box-header">
+                  <span class="setting-icon">⏱️</span>
+                  <strong>Session plan</strong>
+                </div>
+                <div class="setting-row">
+                  <label for="settingSessionLength">Session length</label>
+                  <select id="settingSessionLength" class="select-input">
+                    <option value="10">10 minutes</option>
+                    <option value="15">15 minutes</option>
+                    <option value="20">20 minutes</option>
+                  </select>
+                </div>
+                <div class="setting-row">
+                  <label for="settingLearningFocus">Learning focus</label>
+                  <select id="settingLearningFocus" class="select-input">
+                    <option value="emotions">Emotions & Patience</option>
+                    <option value="sequencing">Sequencing</option>
+                    <option value="problem-solving">Problem Solving</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="setting-box">
+                <div class="setting-box-header">
+                  <span class="setting-icon">⏰</span>
+                  <strong>Allowed play time</strong>
+                </div>
+                <div class="setting-row">
+                  <span>Daily window</span>
+                  <span class="setting-badge">4:00 PM – 4:30 PM</span>
+                </div>
+                <div class="setting-row">
+                  <span>Break reminders</span>
+                  <span class="setting-badge">Every 10 min</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- TAB 2: CHILD PROFILE -->
+        <div class="caregiver-tab-content" id="tab-profile">
+          <section class="caregiver-card">
+            <span class="eyebrow-dim">CHILD PROFILE</span>
+            <h2 id="profileViewTitle">Milo's adventure profile</h2>
+            <p class="section-desc">A warm overview of the player. You shape the journey.</p>
+
+            <form class="profile-form" id="childProfileForm" onsubmit="return false;">
+              <div class="profile-form-grid">
+                <div class="form-group">
+                  <label for="inputChildName">Child Name</label>
+                  <input type="text" id="inputChildName" class="text-input" value="Milo" placeholder="Enter child name" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputChildAge">Age</label>
+                  <input type="number" id="inputChildAge" class="text-input" value="10" min="3" max="18" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputChildLanguage">Preferred Language</label>
+                  <select id="inputChildLanguage" class="select-input">
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputProfileFocus">Learning Focus</label>
+                  <select id="inputProfileFocus" class="select-input">
+                    <option value="Emotions & Patience">Emotions & Patience</option>
+                    <option value="Sequencing & Care">Sequencing & Care</option>
+                    <option value="Curiosity & Nature">Curiosity & Nature</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group mt-4">
+                <label>Selected Adventure Character Companion</label>
+                <div class="profile-char-preview-row">
+                  <div class="profile-char-thumb-wrap">
+                    <img src="assets/char_mira.png" alt="Selected character" id="profileCharThumb" class="profile-char-thumb">
+                  </div>
+                  <div class="profile-char-details">
+                    <strong id="profileCharName">Mira</strong>
+                    <p id="profileCharDesc">Sweet and caring friend with her bunny pouch, gentle with nature.</p>
+                    <button type="button" class="btn btn-sm btn-soft" id="profileChangeCharBtn">Choose a different character</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-actions-row">
+                <button type="button" class="btn btn-primary" id="saveProfileBtn">Save Child Profile</button>
+                <span class="save-success-msg" id="saveSuccessMsg" hidden>✓ Profile saved! Child mode is now unlocked on the homepage.</span>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <!-- TAB 3: PROGRESS & GROWTH -->
+        <div class="caregiver-tab-content" id="tab-progress">
+          <section class="caregiver-card">
+            <div class="section-header-row">
+              <div>
+                <span class="eyebrow-dim">Good afternoon • Oct 2026</span>
+                <h2>Milo's learning & growth summary</h2>
+                <div class="note-banner mt-2">
+                  <span class="note-icon">💌</span>
+                  <div>
+                    <strong>A NOTE FOR YOU</strong>
+                    <p id="caregiverNoteText">Milo explored The Little Seed, practiced patience, and helped tuck the seed gently into the soil today.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats 4 Tiles -->
+            <div class="stats-quad-grid mt-4">
+              <div class="stat-box">
+                <span class="stat-box-icon">📖</span>
+                <strong class="stat-box-num" id="dashSessionsCount">1</strong>
+                <span class="stat-box-label">Sessions completed</span>
+                <span class="stat-box-sub">Gentle rhythm</span>
+              </div>
+
+              <div class="stat-box">
+                <span class="stat-box-icon">⭐</span>
+                <strong class="stat-box-num" id="dashStarsCount">2</strong>
+                <span class="stat-box-label">Garden stars</span>
+                <span class="stat-box-sub">Patience rewards</span>
+              </div>
+
+              <div class="stat-box">
+                <span class="stat-box-icon">⏱️</span>
+                <strong class="stat-box-num">10 min</strong>
+                <span class="stat-box-label">Session rhythm</span>
+                <span class="stat-box-sub">Child-led pace</span>
+              </div>
+
+              <div class="stat-box">
+                <span class="stat-box-icon">🎨</span>
+                <strong class="stat-box-num">Pictures</strong>
+                <span class="stat-box-label">Preferred style</span>
+                <span class="stat-box-sub">Visual storytelling</span>
+              </div>
+            </div>
+
+            <!-- Learning Progress Bars -->
+            <div class="mt-4">
+              <span class="eyebrow-dim">LEARNING PROGRESS</span>
+              <h3>A calm view of growth</h3>
+
+              <div class="skills-progress-list mt-3">
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Emotional understanding (Patience)</span>
+                    <strong id="skillEmotionsVal">85%</strong>
+                  </div>
+                  <div class="skill-track"><div class="skill-fill" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Sequencing (Seed care order)</span>
+                    <strong id="skillSequencingVal">75%</strong>
+                  </div>
+                  <div class="skill-track"><div class="skill-fill" style="width: 75%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span>Problem solving (Plant needs)</span>
+                    <strong id="skillProblemVal">80%</strong>
+                  </div>
+                  <div class="skill-track"><div class="skill-fill" style="width: 80%;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Completed Activities -->
+            <div class="mt-4">
+              <span class="eyebrow-dim">COMPLETED ACTIVITIES</span>
+              <h3>A little trail of good moments</h3>
+              <div class="completed-activity-card mt-2" id="activitySeedCard">
+                <div class="activity-icon-badge">🌱</div>
+                <div class="activity-info">
+                  <strong>Level 1: The Little Seed</strong>
+                  <p>Explored with care • Practiced gentle waiting and watering</p>
+                </div>
+                <span class="activity-status-pill" id="activitySeedStatus">Explored with care ⭐</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- TAB 4: RECOMMENDATIONS -->
+        <div class="caregiver-tab-content" id="tab-recommendations">
+          <section class="caregiver-card">
+            <span class="eyebrow-dim">RECOMMENDATIONS</span>
+            <h2>Support that fits the moment</h2>
+            <p class="section-desc">Try one small invitation. Expresses plenty of warm connection.</p>
+
+            <div class="recs-grid mt-3">
+              <div class="rec-card">
+                <span class="rec-icon">🌸</span>
+                <h3>Replay the flower story</h3>
+                <p>Milo may enjoy following the spring sprout blossoming now that they understand the stages.</p>
+                <button class="btn btn-sm btn-soft" id="recReplayStoryBtn">Play Level 1 Story</button>
+              </div>
+
+              <div class="rec-card">
+                <span class="rec-icon">🧩</span>
+                <h3>Make sequencing playful</h3>
+                <p>Sequencing multi-step tasks benefits from gentle repetition. Try talking about what plants need over snack time.</p>
+                <button class="btn btn-sm btn-outline" id="recOpenMapBtn">Explore Garden Map</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- TAB 5: SETTINGS -->
+        <div class="caregiver-tab-content" id="tab-settings">
+          <section class="caregiver-card">
+            <span class="eyebrow-dim">PREFERENCES</span>
+            <h2>System & Comfort Settings</h2>
+            <div class="settings-two-col mt-3">
+              <div class="setting-box">
+                <strong>Audio Experience</strong>
+                <p class="text-sm text-dim">Soft chimes for interactive dialogue and supportive feedback.</p>
+                <button class="btn btn-sm btn-soft mt-2" id="testChimeBtn">Test Gentle Chime</button>
+              </div>
+              <div class="setting-box">
+                <strong>Data & Reset</strong>
+                <p class="text-sm text-dim">Keep progress safe locally on this device.</p>
+                <button class="btn btn-sm btn-outline mt-2" id="resetProgressBtn">Reset Adventure Progress</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 3: CHARACTER SELECTION (PDF Page 4) ================= -->
+  <section class="screen-view" id="viewCharacterSelect" aria-label="Character Selection Screen">
+    <div class="character-shell">
+      <header class="char-topbar">
+        <button class="btn-back-pill" id="charBackToHomeBtn">
+          <span>←</span> Back to Home
+        </button>
+        <div class="char-player-badge">
+          <span class="player-label">PLAYER:</span>
+          <strong id="charSelectPlayerName">Milo</strong>
+        </div>
+        <button class="btn-back-pill" id="charToMapDirectBtn">
+          Garden Map ➔
+        </button>
+      </header>
+
+      <div class="char-intro">
+        <div class="gentle-badge">
+          <span class="sparkle-icon">✨</span>
+          <span>COMPANION SELECTION</span>
+        </div>
+        <h1 class="char-heading">Choose your adventure friend</h1>
+        <p class="char-subheading">
+          Whichever character is chosen stays as your character throughout the game alongside puppy Milo!
+        </p>
+      </div>
+
+      <!-- 4 Characters Grid matching PDF Page 4 -->
+      <div class="characters-grid">
+        <!-- MIRA -->
+        <div class="char-card active" data-char="mira" id="cardMira" tabindex="0" role="button" aria-label="Select Mira">
+          <div class="char-card-badge"><span class="char-badge-icon">💖</span></div>
+          <div class="char-img-wrap">
+            <img src="assets/char_mira.png" alt="Mira character illustration" class="char-illustration">
+          </div>
+          <div class="char-footer">
+            <h2 class="char-name">💖 MIRA 💖</h2>
+            <span class="char-tag">Gentle & Thoughtful</span>
+            <p class="char-bio">Ties her hair in sweet buns with pink bows and carries a little bunny friend.</p>
+            <button class="btn btn-primary btn-select-char">Selected</button>
+          </div>
+        </div>
+
+        <!-- PIPER -->
+        <div class="char-card" data-char="piper" id="cardPiper" tabindex="0" role="button" aria-label="Select Piper">
+          <div class="char-card-badge"><span class="char-badge-icon">🌸</span></div>
+          <div class="char-img-wrap">
+            <img src="assets/char_piper.png" alt="Piper character illustration" class="char-illustration">
+          </div>
+          <div class="char-footer">
+            <h2 class="char-name">🌸 PIPER 🌸</h2>
+            <span class="char-tag">Curious & Creative</span>
+            <p class="char-bio">Wears a sweet blue beret and denim overalls, eager to discover every flower.</p>
+            <button class="btn btn-soft btn-select-char">Select Piper</button>
+          </div>
+        </div>
+
+        <!-- KAI -->
+        <div class="char-card" data-char="kai" id="cardKai" tabindex="0" role="button" aria-label="Select Kai">
+          <div class="char-card-badge"><span class="char-badge-icon">⭐</span></div>
+          <div class="char-img-wrap">
+            <img src="assets/char_kai.png" alt="Kai character illustration" class="char-illustration">
+          </div>
+          <div class="char-footer">
+            <h2 class="char-name">⭐ KAI ⭐</h2>
+            <span class="char-tag">Playful & Friendly</span>
+            <p class="char-bio">Loves cool casual outfits, high-fives, and cheering on every tiny seed that grows.</p>
+            <button class="btn btn-soft btn-select-char">Select Kai</button>
+          </div>
+        </div>
+
+        <!-- LEO -->
+        <div class="char-card" data-char="leo" id="cardLeo" tabindex="0" role="button" aria-label="Select Leo">
+          <div class="char-card-badge"><span class="char-badge-icon">🍃</span></div>
+          <div class="char-img-wrap">
+            <img src="assets/char_leo.png" alt="Leo character illustration" class="char-illustration">
+          </div>
+          <div class="char-footer">
+            <h2 class="char-name">🍃 LEO 🍃</h2>
+            <span class="char-tag">Adventurous & Patient</span>
+            <p class="char-bio">Ready with his warm yellow hoodie and explorer backpack to explore the path.</p>
+            <button class="btn btn-soft btn-select-char">Select Leo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Puppy Milo Companion Bar matching PDF Page 4 & 5 -->
+      <div class="milo-companion-banner">
+        <div class="milo-companion-avatar-wrap">
+          <img src="assets/milo.png" alt="Puppy Milo illustration" class="milo-companion-img">
+        </div>
+        <div class="milo-companion-talk">
+          <strong>Puppy Milo is ready! 🐕</strong>
+          <p>“Woof! Whichever friend you pick, I will stay right by your side on every single level!”</p>
+        </div>
+        <div class="milo-companion-action">
+          <button class="btn btn-gold" id="confirmCharProceedBtn">Start Adventure on Map ➔</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 4: LEVEL MAP (PDF Page 5 & 6) ================= -->
+  <section class="screen-view" id="viewLevelMap" aria-label="Vertically Scrollable Garden Level Map">
+    <div class="map-wrapper">
+      <!-- Sticky Navigation Bar -->
+      <header class="map-topbar">
+        <button class="map-nav-btn" id="mapBackToCharBtn" title="Change character">
+          <span>←</span> Characters
+        </button>
+
+        <div class="map-hero-pill">
+          <div class="map-avatars-cluster">
+            <img src="assets/avatar_mira.jpg" alt="Chosen character" id="mapNavCharAvatar" class="map-mini-avatar">
+            <img src="assets/avatar_milo.jpg" alt="Milo puppy" class="map-mini-avatar milo-avatar-mini">
+          </div>
+          <div class="map-hero-copy">
+            <strong id="mapNavPlayerName">Mira & Milo</strong>
+            <span id="mapNavLevelStatus">Level 1 • The Little Seed</span>
+          </div>
+        </div>
+
+        <div class="map-stats-pill">
+          <span class="star-icon">⭐</span>
+          <span id="mapStarsCounter">2 Stars</span>
+        </div>
+
+        <button class="map-nav-btn" id="mapToCaregiverBtn" title="Open Caretaker Mode">
+          <span>👥</span> Caretaker
+        </button>
+      </header>
+
+      <!-- Scrollable Map Body (No scrollbar, fits laptop width) -->
+      <div class="map-scroll-viewport" id="mapScrollViewport">
+        <div class="map-canvas-container">
+          <!-- Map Background Image -->
+          <img src="assets/garden_map.jpg" alt="Illustrated winding garden level map" class="map-art-bg">
+
+          <!-- Interactive Level Stepping Stones (Levels 1 to 10) -->
+          <div class="level-nodes-layer">
+            <!-- Level 1 (Top path) -->
+            <button class="level-node node-unlocked current" data-level="1" id="levelNode1" style="top: 16.2%; left: 49.5%;">
+              <span class="node-number">1</span>
+              <span class="node-label">The Little Seed</span>
+            </button>
+
+            <!-- Level 2 -->
+            <button class="level-node node-locked" data-level="2" id="levelNode2" style="top: 19.3%; left: 45.5%;">
+              <span class="node-number">2</span>
+              <span class="node-label">The Gentle Rain</span>
+            </button>
+
+            <!-- Level 3 -->
+            <button class="level-node node-locked" data-level="3" id="levelNode3" style="top: 22.4%; left: 40.5%;">
+              <span class="node-number">3</span>
+              <span class="node-label">Sunbeam Dance</span>
+            </button>
+
+            <!-- Level 4 -->
+            <button class="level-node node-locked" data-level="4" id="levelNode4" style="top: 24.5%; left: 51.5%;">
+              <span class="node-number">4</span>
+              <span class="node-label">Busy Earthworm</span>
+            </button>
+
+            <!-- Level 5 -->
+            <button class="level-node node-locked" data-level="5" id="levelNode5" style="top: 25.2%; left: 61.2%;">
+              <span class="node-number">5</span>
+              <span class="node-label">Butterfly Garden</span>
+            </button>
+
+            <!-- Level 6 -->
+            <button class="level-node node-locked" data-level="6" id="levelNode6" style="top: 27.5%; left: 68.5%;">
+              <span class="node-number">6</span>
+              <span class="node-label">Singing Stream</span>
+            </button>
+
+            <!-- Level 7 -->
+            <button class="level-node node-locked" data-level="7" id="levelNode7" style="top: 30.5%; left: 63.8%;">
+              <span class="node-number">7</span>
+              <span class="node-label">Whispering Breeze</span>
+            </button>
+
+            <!-- Level 8 (across bridge) -->
+            <button class="level-node node-locked" data-level="8" id="levelNode8" style="top: 39.5%; left: 32.5%;">
+              <span class="node-number">8</span>
+              <span class="node-label">Firefly Meadow</span>
+            </button>
+
+            <!-- Level 9 -->
+            <button class="level-node node-locked" data-level="9" id="levelNode9" style="top: 43.5%; left: 30.5%;">
+              <span class="node-number">9</span>
+              <span class="node-label">Autumn Leaves</span>
+            </button>
+
+            <!-- Level 10 -->
+            <button class="level-node node-locked" data-level="10" id="levelNode10" style="top: 45.8%; left: 40.2%;">
+              <span class="node-number">10</span>
+              <span class="node-label">Great Bloom</span>
+            </button>
+
+            <!-- Finish Arch -->
+            <div class="level-finish-flag" style="top: 92.5%; left: 53%;">
+              <span>🏆 Finish Garden</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Marker: Chosen Character & Puppy Milo positioned beside current unlocked level (PDF Page 6) -->
+          <div class="map-player-marker" id="mapPlayerMarker" style="top: 16.2%; left: 68%;">
+            <div class="marker-bubble">
+              <span class="marker-badge-text">We are here! ⭐</span>
+            </div>
+            <div class="marker-figures">
+              <img src="assets/char_mira.png" alt="Player character" id="markerCharImg" class="marker-char-figure">
+              <img src="assets/milo.png" alt="Puppy Milo" class="marker-milo-figure">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 5: LEVEL 1 STORY ANIMATION ================= -->
+  <section class="screen-view" id="viewStory" aria-label="Level 1 Story: The Little Seed">
+    <main class="app-shell">
+      <!-- Story Topbar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="btn btn-sm btn-soft" id="storyBackToMapBtn">
+            <span>←</span> Map
+          </button>
+          <div class="brand">
+            <span class="brand-icon">🌱</span>
+            <span>Little Wonders</span>
+          </div>
+        </div>
+
+        <div class="topbar-center">
+          <span class="level-pill">LEVEL 1 • THE LITTLE SEED</span>
+        </div>
+
+        <div class="topbar-right">
+          <div class="active-companion-pill" id="storyCompanionPill">
+            <img src="assets/avatar_mira.jpg" alt="Character companion" id="storyCharAvatar" class="companion-avatar">
+            <img src="assets/avatar_milo.jpg" alt="Milo puppy" class="companion-avatar milo-avatar-mini">
+            <span class="companion-label" id="storyCompanionLabel">Mira & Milo</span>
+          </div>
+          <button class="sound-btn" id="storyAudioToggleBtn" title="Audio narration chime" aria-label="Toggle sound">
+            <span id="storyAudioIcon">🔔</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Progress Track -->
+      <div class="progress-wrap" aria-label="Story progress">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill" style="width: 25%;"></div>
+        </div>
+        <span class="progress-label" id="progressLabel">Step 1 of 4</span>
+      </div>
+
+      <!-- Illustrated Garden Stage -->
+      <section class="garden" id="garden" aria-label="Animated garden story scene">
+        <!-- Visual Lighting & Environment Overlays -->
+        <div class="garden-sunbeams" id="gardenSunbeams" aria-hidden="true"></div>
+        <div class="sun" aria-hidden="true"></div>
+        <div class="cloud" aria-hidden="true">☁️</div>
+        <div class="cloud two" aria-hidden="true">☁️</div>
+        <div class="hill left" aria-hidden="true"></div>
+        <div class="hill right" aria-hidden="true"></div>
+        <div class="flower-patch" aria-hidden="true">🌼 🌸 🌼</div>
+        <div class="flower-patch right" aria-hidden="true">🌼 🌸 🌼</div>
+
+        <!-- Character: Girl (Left side of garden-scene.png) -->
+        <div class="character girl" id="girl" role="img" aria-label="Young girl kneeling in garden">
+          <div class="character-avatar-badge" id="girlAvatarBadge">
+            <img src="assets/avatar_mira.jpg" alt="You" id="girlBadgeImg" class="char-badge-img">
+          </div>
+          <div class="character-expression-layer" id="girlExpression"></div>
+          <span class="character-name" id="girlNameTag">You</span>
+        </div>
+
+        <!-- Girl Dialogue Bubble (Positioned strictly above the girl on the left) -->
+        <div class="dialogue-bubble girl-dialogue" id="girlDialogue" role="region" aria-live="polite">
+          <div class="bubble-top">
+            <img src="assets/avatar_mira.jpg" alt="Speaker" id="girlDialogueAvatar" class="bubble-avatar-mini">
+            <span class="bubble-speaker-name" id="girlDialogueName">You</span>
+            <span class="bubble-read-indicator">📖 Active</span>
+          </div>
+          <p class="bubble-text" id="girlDialogueText">Will my little seed grow today, Grandpa?</p>
+          <div class="bubble-pointer"></div>
+        </div>
+
+        <!-- Character: Grandpa (Right side of garden-scene.png) -->
+        <div class="character grandpa" id="grandpa" role="img" aria-label="Grandpa kneeling gently beside the garden">
+          <div class="character-avatar-badge grandpa-badge">
+            <span class="badge-icon-elder">👴</span>
+          </div>
+          <div class="character-expression-layer grandpa-gesture" id="grandpaGesture"></div>
+          <span class="character-name">Grandpa</span>
+        </div>
+
+        <!-- Grandpa Dialogue Bubble (Positioned strictly above Grandpa on the right) -->
+        <div class="dialogue-bubble grandpa-dialogue" id="grandpaDialogue" role="region" aria-live="polite">
+          <div class="bubble-top">
+            <span class="bubble-avatar-mini elder-icon">👴</span>
+            <span class="bubble-speaker-name">Grandpa</span>
+            <span class="bubble-read-indicator">📖 Active</span>
+          </div>
+          <p class="bubble-text" id="grandpaDialogueText">Let's give it time, dear. First, let's tuck it safely in the soil.</p>
+          <div class="bubble-pointer"></div>
+        </div>
+
+        <!-- Character: Puppy Milo (Beside the child, illustrated transparent beagle) -->
+        <div class="character milo" id="milo" aria-label="Milo the puppy">
+          <img src="assets/milo.png" alt="Milo the puppy companion" id="miloSpriteImg" class="milo-live-sprite">
+          <div class="milo-wag-tail" id="miloTail"></div>
+        </div>
+
+        <!-- Milo Bark / Thought Bubble -->
+        <div class="dialogue-bubble milo-dialogue" id="miloDialogue" role="region" aria-live="polite" hidden>
+          <p class="bubble-text" id="miloDialogueText">Woof! 🌱</p>
+        </div>
+
+        <!-- Soil Bed Mound -->
+        <div class="garden-bed" id="gardenBed" aria-hidden="true"></div>
+
+        <!-- Animated Golden Seed -->
+        <div class="seed" id="seed" aria-hidden="true">
+          <span class="seed-glow"></span>
+          <span class="seed-shape">🌰</span>
+        </div>
+
+        <!-- Animated Vintage Watering Can -->
+        <div class="watering-can-element" id="wateringCan" aria-hidden="true">
+          <span class="can-body">🫗</span>
+        </div>
+
+        <!-- Shimmering Water Droplets -->
+        <div class="water-drops-stream" id="waterStream" aria-hidden="true">
+          <div class="water-drop d1">💧</div>
+          <div class="water-drop d2">💧</div>
+          <div class="water-drop d3">💧</div>
+          <div class="water-drop d4">💧</div>
+          <div class="water-drop d5">💧</div>
+          <div class="water-drop d6">💧</div>
+        </div>
+        <div class="water-drop" id="waterDrop" aria-hidden="true">💧</div>
+
+        <!-- Plant Growth Stages (Stage 0 to 4) -->
+        <div class="plant-stage" id="plantStage" data-stage="0" aria-label="Plant growth animation">
+          <div class="soil-burst"></div>
+          <div class="stem"></div>
+          <div class="leaf left"></div>
+          <div class="leaf right"></div>
+          <div class="leaf mid-left"></div>
+          <div class="leaf mid-right"></div>
+          <div class="flower-bud"></div>
+          <div class="bloom">
+            <span class="bloom-petal-ring"></span>
+            <span class="bloom-center">🌻</span>
+          </div>
+        </div>
+
+        <!-- Scene Caption Banner -->
+        <div class="story-caption" id="sceneCaption">A tiny beginning 🌱</div>
+
+        <!-- Dialogue Controls Overlay -->
+        <div class="dialogue-controls-bar">
+          <button class="diag-btn" id="diagReplayBtn" title="Replay dialogue audio & lines">
+            <span>🔁</span> Replay Speech
+          </button>
+          <button class="diag-btn" id="diagPauseBtn" title="Pause dialogue timer">
+            <span id="diagPauseIcon">⏸️</span> <span id="diagPauseLabel">Pause</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Content Grid -->
+      <section class="content-grid">
+        <article class="story-card" id="storyCard">
+          <div class="eyebrow" id="eyebrow">CHAPTER 01 • A NEW BEGINNING</div>
+          <h2 id="storyTitle">A tiny seed, a big hope</h2>
+          <p class="story-text" id="storyText" aria-live="polite">
+            One bright morning, the girl planted a tiny seed in Grandpa's garden. Milo sniffed the soil. “Will it grow today?” she wondered.
+          </p>
+
+          <div class="action-row">
+            <button class="btn btn-primary" id="nextButton">Continue the story</button>
+            <button class="btn btn-soft" id="restartButton">Start again</button>
+            <button class="btn btn-outline" id="storyMapReturnBtn">View Level Map</button>
+          </div>
+
+          <!-- Interactive Choice Panel (Prompt Requirement #6) -->
+          <section class="choice-area" id="choicePanel" hidden>
+            <div class="choice-prompt-banner">
+              <span class="choice-help-icon">🤔</span>
+              <strong>What should we do to help the seed grow?</strong>
+            </div>
+
+            <div class="choices">
+              <!-- Choice 1: Water & Time -->
+              <button class="choice" id="waterChoice">
+                <span class="choice-icon-wrap">💧</span>
+                <span class="choice-text-wrap">
+                  <strong>Give the seed water and time</strong>
+                  <small>Gentle water and loving patience</small>
+                </span>
+              </button>
+
+              <!-- Choice 2: Keep Digging -->
+              <button class="choice" id="digChoice">
+                <span class="choice-icon-wrap">🔍</span>
+                <span class="choice-text-wrap">
+                  <strong>Keep digging up the seed</strong>
+                  <small>Looking under the soil often</small>
+                </span>
+              </button>
+
+              <!-- Choice 3: Leave It Without Care -->
+              <button class="choice" id="waitChoice">
+                <span class="choice-icon-wrap">🍂</span>
+                <span class="choice-text-wrap">
+                  <strong>Leave without caring for it</strong>
+                  <small>No water or sunlight</small>
+                </span>
+              </button>
+            </div>
+
+            <p class="feedback" id="feedback" aria-live="polite"></p>
+          </section>
+
+          <!-- Completion Badge -->
+          <div class="badge-celebration-card" id="badge" hidden>
+            <div class="badge-art">🏅</div>
+            <div class="badge-content">
+              <strong>KIND GARDENER BADGE UNLOCKED!</strong>
+              <p>You gave the seed gentle water and patient care. Look at the sunflower bloom!</p>
+              <div class="badge-actions mt-2">
+                <button class="btn btn-gold" id="badgeToMapBtn">Go to Level 2 on Map ➔</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Side Card: Garden Journal -->
+        <aside class="side-card">
+          <div class="eyebrow">YOUR GARDEN JOURNAL</div>
+          <h3>Every little step matters</h3>
+          <p>This story is about trying, waiting, and caring. There is no timer and no wrong feeling.</p>
+
+          <div class="mini-stat">
+            <div class="stat-avatar-wrap">
+              <img src="assets/avatar_milo.jpg" alt="Milo status" class="mini-stat-img">
+            </div>
+            <div class="stat-copy">
+              <strong>Milo's mood</strong>
+              <span id="miloMoodText">Happy to be with you</span>
+            </div>
+          </div>
+
+          <div class="mini-stat">
+            <span class="stat-icon">💧</span>
+            <div class="stat-copy">
+              <strong>Watering</strong>
+              <span id="waterCount">0 / 1</span>
+            </div>
+          </div>
+
+          <div class="mini-stat">
+            <span class="stat-icon">🌱</span>
+            <div class="stat-copy">
+              <strong>Remember</strong>
+              <span id="journalTipText">Growth takes care and time</span>
+            </div>
+          </div>
+
+          <div class="mini-stat">
+            <span class="stat-icon">⭐</span>
+            <div class="stat-copy">
+              <strong>Unlocked Levels</strong>
+              <span id="unlockedLevelsCount">1 of 10</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <p class="footer-note">You can pause, restart or try another choice whenever you want.</p>
+    </main>
+  </section>
+
+  <!-- Gentle Toast Notification Banner -->
+  <div class="gentle-toast" id="gentleToast" role="status" aria-live="polite" hidden></div>
+
+</body>
 </html>

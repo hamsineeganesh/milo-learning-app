@@ -1,0 +1,363 @@
+
+
+.quest-page {
+  min-height: 100vh;
+  background: #f7f5ec;
+  color: #4f5844;
+  font-family: "Nunito", sans-serif;
+  padding-bottom: 40px;
+}
+
+.quest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px clamp(16px, 4vw, 48px);
+  background: #fffdf7;
+  border-bottom: 1px solid #ebe6d9;
+}
+
+.quest-header h1 {
+  margin: 3px 0 0;
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+.quest-eyebrow {
+  margin: 0;
+  color: #9b9c7b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.quest-back,
+.quest-audio-button,
+.quest-listen-button,
+.quest-choice,
+.quest-next-button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.quest-back {
+  border: 0;
+  background: #f0eee2;
+  color: #5c674e;
+  padding: 10px 14px;
+  border-radius: 14px;
+  white-space: nowrap;
+}
+
+.quest-progress {
+  font-weight: 900;
+  color: #929578;
+  white-space: nowrap;
+}
+
+.quest-progress-track {
+  height: 7px;
+  background: #e6e5d6;
+}
+
+.quest-progress-fill {
+  height: 100%;
+  background: #a9bd8b;
+  transition: width 300ms ease;
+}
+
+.quest-content {
+  width: min(1100px, 94%);
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.quest-scene-card,
+.quest-story-card {
+  background: #fffdf8;
+  border: 1px solid #ece7db;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px #82795b0c;
+}
+
+.quest-scene-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  animation: quest-fade-in 350ms ease;
+}
+
+.quest-scene-caption {
+  padding: 15px 20px 19px;
+}
+
+.quest-scene-caption span {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  color: #a0a083;
+}
+
+.quest-scene-caption h2 {
+  margin: 4px 0 0;
+  font-size: 25px;
+}
+
+.quest-story-card {
+  padding: 22px;
+}
+
+.quest-speaker-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.quest-speaker-avatar {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: grid;
+  place-items: center;
+  background: #f4eddb;
+  border-radius: 17px;
+  font-size: 28px;
+}
+
+.quest-dialogue {
+  flex: 1;
+}
+
+.quest-dialogue strong {
+  color: #7d9165;
+}
+
+.quest-dialogue p {
+  margin: 5px 0 0;
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+.quest-audio-button {
+  border: 0;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background: #edf1e4;
+  font-size: 20px;
+}
+
+.quest-listen-button {
+  margin-top: 17px;
+  border: 1px solid #dfe5d3;
+  border-radius: 13px;
+  background: #f3f5ec;
+  padding: 10px 14px;
+  color: #627651;
+  font-weight: 800;
+}
+
+.quest-question {
+  margin: 24px 0 13px;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.quest-choices {
+  display: grid;
+  gap: 10px;
+}
+
+.quest-choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  text-align: left;
+  padding: 12px;
+  border-radius: 16px;
+  border: 2px solid #e9e6d9;
+  background: #fffefa;
+  color: #555b49;
+  font-weight: 800;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.quest-choice:hover:not(:disabled) {
+  background: #f4f5eb;
+  border-color: #c8d5b6;
+}
+
+.quest-choice:disabled {
+  cursor: default;
+  opacity: 0.82;
+}
+
+.choice-number {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #efeee3;
+}
+
+.quest-choice.choice-correct {
+  background: #eef5e7;
+  border-color: #b8cda4;
+}
+
+.quest-feedback {
+  margin-top: 16px;
+  padding: 13px;
+  border-radius: 14px;
+  background: #f8f0db;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.quest-success {
+  background: #eef5e7;
+}
+
+.quest-next-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px;
+  border: 0;
+  border-radius: 15px;
+  background: #8fa879;
+  color: white;
+  font-weight: 900;
+}
+
+.quest-next-button:hover {
+  background: #7f986a;
+}
+
+.quest-finish {
+  text-align: center;
+  padding-top: 12px;
+}
+
+.quest-finish h2 {
+  margin-bottom: 6px;
+}
+
+.quest-finish p {
+  line-height: 1.6;
+}
+
+.quest-celebration {
+  font-size: 34px;
+}
+
+@keyframes quest-fade-in {
+  from {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 760px) {
+  .quest-content {
+    grid-template-columns: 1fr;
+    width: min(560px, 94%);
+    margin-top: 16px;
+    gap: 14px;
+  }
+
+  .quest-header {
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .quest-header h1 {
+    font-size: 18px;
+  }
+
+  .quest-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.8px;
+  }
+
+  .quest-back {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .quest-progress {
+    font-size: 13px;
+  }
+
+  .quest-scene-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .quest-story-card {
+    padding: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quest-scene-image {
+    animation: none;
+  }
+
+  .quest-progress-fill {
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .quest-scene-image {
+    animation: none;
+  }
+
+  .quest-progress-fill {
+    transition: none;
+  }
+}
+
+
+.quest-finish-actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.quest-finish-actions button {
+  width: 100%;
+  min-height: 54px;
+  padding: 13px 16px;
+  border-radius: 15px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+}
+
+.quest-plant-button {
+  background: #91a77c;
+  color: white;
+}
+
+.quest-plant-button:hover {
+  background: #7f966b;
+}
+
+.quest-back-garden {
+  background: #f5f4ec;
+  color: #68715c;
+  border: 1px solid #e3e3d6;
+}

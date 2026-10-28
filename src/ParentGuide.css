@@ -1,0 +1,258 @@
+.milo-parent-guide{max-width:100%;padding:clamp(20px,3vw,30px);border:1px solid #e8e8dc;border-radius:20px;background:#fffefa;color:#405741}
+.milo-guide-heading{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.milo-guide-heading img{width:62px;height:62px;object-fit:contain}
+.milo-guide-heading h2{margin:4px 0;color:#405741}
+.milo-guide-heading p{margin:4px 0 0;color:#727d6d}
+.milo-guide-form,.milo-followup-form{display:grid;gap:10px}
+.milo-guide-form label,.milo-followup-form label{color:#405741;font-size:13px;font-weight:800}
+.milo-guide-form textarea,.milo-guide-form input,.milo-guide-form select,.milo-followup-form textarea{width:100%;min-height:46px;padding:12px 14px;border:1px solid #dfe4d7;border-radius:12px;background:#fff;color:#405741;font:inherit}
+.milo-guide-form textarea,.milo-followup-form textarea{min-height:105px;resize:vertical;line-height:1.6}
+.milo-guide-form small{color:#828879;font-size:11px}
+.milo-guide-examples{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
+.milo-guide-examples button{padding:8px 12px;border:1px solid #dfe6d6;border-radius:18px;background:#f5f7ef;color:#60744e;font:inherit;font-size:12px;text-align:left;cursor:pointer}
+.milo-guide-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.milo-guide-options>div{display:grid;align-content:start;gap:7px}
+.milo-guide-submit{justify-self:start;min-width:150px;margin-top:8px}
+.milo-guide-submit:disabled{cursor:wait;opacity:.65}
+.milo-guide-error{margin-top:16px;padding:13px 15px;border-radius:12px;background:#fff1e9;color:#85573f}
+.milo-guide-error p{margin:0 0 8px}
+.milo-guide-error button{padding:7px 10px;border:1px solid #ead5c7;border-radius:9px;background:#fffaf6;color:#80543c;cursor:pointer}
+.milo-guide-turn{margin-top:22px}
+.milo-guide-turn>h3{margin:0 0 12px;color:#405741;font-size:19px}
+.milo-guide-answer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.milo-answer-block{min-width:0;padding:16px;border:1px solid #e7e9df;border-radius:15px}
+.milo-answer-block h4{display:flex;align-items:center;gap:8px;margin:0 0 10px;color:#405741;font-size:14px}
+.milo-answer-block h4 span{font-size:18px}
+.milo-answer-block p,.milo-answer-block ol{margin:0;color:#59675a;font-size:13px;line-height:1.7}
+.milo-answer-block ol{display:grid;gap:9px;padding-left:20px}
+.answer-perspective{background:#fff9e9;border-color:#f1e4bd}
+.answer-strategies{background:#f2f7ed;border-color:#dce8d2}
+.answer-activity{background:#eff6f5;border-color:#d7e8e4}
+.answer-phrases{background:#f5f0fa;border-color:#e5dbef}
+.answer-adaptations{background:#f0f4fb;border-color:#dae4f1}
+.answer-breaks{background:#f5f5f1;border-color:#e4e5de}
+.answer-reflection{grid-column:1/-1;background:#fff5ef;border-color:#f0dfd4}
+.answer-reflection p{font-weight:700}
+.milo-followup-form{margin-top:22px;padding:17px;border:1px solid #e6e8de;border-radius:15px;background:#fbfcf7}
+.milo-followup-question{margin:0 0 12px;color:#687563;font-size:13px}
+.milo-guide-disclaimer{margin:18px 0 0;color:#858879;font-size:11px;line-height:1.6}
+@media(max-width:700px){.milo-guide-options,.milo-guide-answer-grid{grid-template-columns:1fr}.answer-reflection{grid-column:auto}.milo-guide-heading{align-items:flex-start}.milo-guide-heading img{width:50px;height:50px}.milo-guide-examples{flex-direction:column;align-items:stretch}}
+/* Structured answer layout: retain the existing MILO pastel palette */
+.milo-guide-answer-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "perspective perspective"
+    "strategies strategies"
+    "activity activity"
+    "phrases phrases"
+    "adaptations breaks"
+    "reflection reflection";
+  gap: 14px;
+}
+.answer-perspective { grid-area: perspective; }
+.answer-strategies { grid-area: strategies; }
+.answer-activity { grid-area: activity; }
+.answer-phrases { grid-area: phrases; }
+.answer-adaptations { grid-area: adaptations; }
+.answer-breaks { grid-area: breaks; }
+.answer-reflection { grid-area: reflection; }
+
+.milo-guide-answer-block { padding: 18px; }
+.milo-guide-answer-block h4 { margin-bottom: 12px; font-size: 15px; }
+.milo-guide-answer-block p,
+.milo-guide-answer-block ol {
+  font-size: 14px;
+  line-height: 1.75;
+}
+.milo-guide-answer-block ol { padding-left: 22px; }
+
+/* The three strategies become individual cards */
+.answer-strategies ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+  counter-reset: guide-strategy;
+}
+.answer-strategies li {
+  position: relative;
+  min-height: 135px;
+  padding: 48px 15px 16px;
+  border: 1px solid #dce8d2;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 42%);
+  counter-increment: guide-strategy;
+}
+.answer-strategies li::before {
+  position: absolute;
+  top: 13px;
+  left: 14px;
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border: 1px solid #b8d69c;
+  border-radius: 50%;
+  background: #e8f2dc;
+  color: #607b4e;
+  content: counter(guide-strategy);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* Activity steps are full-width rows with clear number markers */
+.answer-activity ol {
+  display: grid;
+  gap: 9px;
+  padding: 0;
+  list-style: none;
+  counter-reset: guide-step;
+}
+.answer-activity li {
+  position: relative;
+  min-height: 48px;
+  padding: 13px 14px 13px 52px;
+  border: 1px solid #d7e8e4;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 38%);
+  counter-increment: guide-step;
+}
+.answer-activity li::before {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border-radius: 8px;
+  background: #dcefeb;
+  color: #466e66;
+  content: counter(guide-step);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* Phrases display as paired quote cards */
+.answer-phrases ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.answer-phrases li {
+  position: relative;
+  padding: 13px 16px 13px 34px;
+  border: 1px solid #e5dbef;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 44%);
+  color: #665878;
+  font-weight: 700;
+  font-style: italic;
+}
+.answer-phrases li::before {
+  position: absolute;
+  left: 13px;
+  color: #a17bc1;
+  content: "“";
+  font-size: 19px;
+  font-weight: 900;
+}
+
+/* The two practical support lists sit alongside each other */
+.answer-adaptations ol,
+.answer-breaks ol {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+.answer-adaptations li,
+.answer-breaks li {
+  position: relative;
+  padding-left: 17px;
+}
+.answer-adaptations li::before,
+.answer-breaks li::before {
+  position: absolute;
+  left: 0;
+  color: #d5a145;
+  content: "•";
+  font-weight: 900;
+}
+
+/* Reflection stands out while staying within the established palette */
+.answer-reflection {
+  border-width: 2px;
+  border-color: #b8d69c;
+}
+.answer-reflection p {
+  color: #506b48;
+  font-size: 16px;
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Increase supporting text and controls by one pixel */
+.milo-guide-heading p,
+.milo-guide-form label,
+.milo-followup-form label { font-size: 14px; }
+.milo-guide-form small,
+.milo-guide-disclaimer,
+.milo-followup-question { font-size: 12px; }
+.milo-guide-examples button { font-size: 13px; }
+.milo-guide-form textarea,
+.milo-guide-form input,
+.milo-guide-form select,
+.milo-followup-form textarea { font-size: 15px; }
+
+@media (max-width: 700px) {
+  .milo-guide-answer-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "perspective"
+      "strategies"
+      "activity"
+      "phrases"
+      "adaptations"
+      "breaks"
+      "reflection";
+  }
+  .answer-strategies ol { grid-template-columns: 1fr; }
+  .answer-strategies li { min-height: 0; }
+  .answer-phrases ol { grid-template-columns: 1fr; }
+}
+
+.milo-guide-answer-grid { counter-reset: guide-section; }
+.milo-answer-block { counter-increment: guide-section; }
+.milo-answer-block h4::before { content: counter(guide-section) "."; color: #637b53; font-weight: 900; }
+.milo-guide-turn > h3 { font-size: 20px; }
+.answer-reflection p { font-size: 15px; }
+.milo-guide-form textarea, .milo-guide-form input, .milo-guide-form select, .milo-followup-form textarea { font-size: 16px; }
+/* Gentle brightness and typography refinement requested for the guide */
+.answer-perspective { background: #fff7dd; border-color: #efdfae; }
+.answer-strategies { background: #edf6e5; border-color: #d3e4c5; }
+.answer-activity { background: #eaf5f2; border-color: #cfe3de; }
+.answer-phrases { background: #f3eafa; border-color: #decfeb; }
+.answer-adaptations { background: #eaf1fc; border-color: #d0def1; }
+.answer-breaks { background: #f2f3eb; border-color: #e0e2d5; }
+.answer-reflection { background: #fff1e7; border-color: #acd18d; }
+.answer-strategies li { background: rgb(255 255 255 / 58%); border-color: #d2e3c5; }
+.answer-activity li { background: rgb(255 255 255 / 55%); border-color: #cfe3de; }
+.answer-phrases li { background: rgb(255 255 255 / 62%); border-color: #decfeb; }
+.milo-guide-turn > h3,
+.milo-answer-block h4 {
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", sans-serif;
+  letter-spacing: -0.01em;
+}
+.milo-guide-turn > h3 { font-size: 20px; }
+.milo-answer-block h4 { font-size: 15px; }
+.milo-answer-block p,
+.milo-answer-block li {
+  font-size: 15px;
+  line-height: 1.75;
+}
+.answer-reflection p { font-size: 16px; }

@@ -1,0 +1,303 @@
+.plant-game-page {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f5f4ec;
+  color: #59664d;
+  font-family: "Nunito", sans-serif;
+  scrollbar-width: none;
+}
+
+.plant-game-page::-webkit-scrollbar {
+  display: none;
+}
+
+.plant-game-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px clamp(16px, 4vw, 42px);
+  background: #fffdf8;
+  border-bottom: 1px solid #e9e7dc;
+}
+
+.plant-game-heading {
+  min-width: 0;
+}
+
+.plant-game-heading p {
+  margin: 0 0 3px;
+  color: #929d7e;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.plant-game-heading h1 {
+  margin: 0 0 3px;
+  font-size: clamp(19px, 2.4vw, 26px);
+}
+
+.plant-game-heading span {
+  color: #888b79;
+  font-size: 12px;
+}
+
+.plant-game-map-button {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 9px 15px;
+  border: 1px solid #dfe3d5;
+  border-radius: 13px;
+  background: #f3f4ec;
+  color: #657555;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.plant-game-map-button:hover {
+  background: #e9efdf;
+}
+
+.plant-game-progress {
+  flex: 0 0 6px;
+  background: #e5e6d9;
+}
+
+.plant-game-progress div {
+  height: 100%;
+  background: #a7ba8d;
+  transition: width 300ms ease;
+}
+
+.plant-game-card {
+  box-sizing: border-box;
+  width: min(1200px, 96%);
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: clamp(10px, 2vh, 20px) auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(290px, 0.8fr);
+  overflow: hidden;
+  border: 1px solid #e9e6da;
+  border-radius: 22px;
+  background: #fffdf8;
+}
+
+.plant-game-scene {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #e6e9da;
+}
+
+.plant-game-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: plant-image-appear 520ms ease both;
+}
+
+.plant-game-character {
+  position: absolute;
+  z-index: 2;
+  bottom: 4%;
+  left: 3%;
+  width: 40%;
+  height: 82%;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+  animation:
+    plant-character-arrive 500ms cubic-bezier(.2, .8, .2, 1) both,
+    plant-character-sway 3.4s ease-in-out 500ms infinite;
+}
+
+.plant-game-story {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(16px, 2.4vw, 28px);
+  overflow: hidden;
+  text-align: center;
+}
+
+.plant-game-story h2 {
+  margin: 0 0 6px;
+  font-size: clamp(20px, 2.2vw, 25px);
+}
+
+.plant-game-story > p {
+  margin: 0 0 8px;
+  color: #727864;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.plant-game-listen,
+.plant-game-action {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 9px;
+  padding: 10px 14px;
+  border-radius: 13px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.plant-game-listen {
+  border: 1px solid #dfe3d5;
+  background: #f3f4ec;
+  color: #657555;
+}
+
+.plant-game-action {
+  border: 0;
+  background: #91a77c;
+  color: white;
+}
+
+.plant-game-action:hover {
+  background: #80976b;
+}
+
+.plant-game-celebration {
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: #f0f3e8;
+}
+
+.plant-game-celebration span {
+  font-size: 27px;
+}
+
+.plant-game-celebration p {
+  margin: 2px 0 0;
+  font-size: 13px;
+}
+
+@keyframes plant-character-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes plant-character-sway {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+@keyframes plant-image-appear {
+  from {
+    opacity: 0.7;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 761px) {
+  .plant-game-header {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  .plant-game-card {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .plant-game-story {
+    padding: 14px;
+  }
+
+  .plant-game-listen,
+  .plant-game-action {
+    min-height: 38px;
+    margin-top: 6px;
+    padding: 7px 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  .plant-game-page {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: auto;
+  }
+
+  .plant-game-header {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .plant-game-heading h1 {
+    font-size: 18px;
+  }
+
+  .plant-game-map-button {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .plant-game-card {
+    flex: 0 0 auto;
+    grid-template-columns: 1fr;
+    width: min(560px, 94%);
+    margin: 12px auto;
+  }
+
+  .plant-game-scene {
+    aspect-ratio: 1.2 / 1;
+  }
+
+  .plant-game-character {
+    width: 40%;
+    height: 82%;
+  }
+
+  .plant-game-story {
+    padding: 16px;
+    overflow: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plant-game-background,
+  .plant-game-character,
+  .plant-game-progress div {
+    animation: none;
+    transition: none;
+  }
+}

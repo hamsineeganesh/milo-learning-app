@@ -1602,3 +1602,521 @@ button:active {
     font-size: 10px;
   }
 }
+.garden-level-button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  width: clamp(42px, 5vw, 64px);
+  height: clamp(42px, 5vw, 64px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+
+  color: #fffdf7;
+  font-family: inherit;
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 900;
+
+  text-shadow: 0 1px 2px rgba(80, 70, 60, 0.2);
+  box-shadow: 0 4px 0 rgba(100, 90, 70, 0.16);
+
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.garden-level-button:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 6px 12px rgba(100, 90, 70, 0.18);
+}
+
+.garden-level-button:focus-visible {
+  outline: 3px solid #8eadd0;
+  outline-offset: 4px;
+}
+
+.level-1 { background: #efc16e; }
+.level-2 { background: #e9a5aa; }
+.level-3 { background: #bba5df; }
+.level-4 { background: #efc16e; }
+.level-5 { background: #e9a5aa; }
+
+
+.garden-level-position {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.garden-level-button {
+  position: relative;
+  transform: none;
+  width: clamp(60px, 7vw, 86px);
+  height: clamp(60px, 7vw, 86px);
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  color: #fffdf7;
+  font-family: inherit;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 900;
+  text-shadow: 0 2px 3px #0002;
+  box-shadow: 0 5px 0 rgba(100, 90, 70, 0.18);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.garden-level-button:hover {
+  transform: scale(1.08);
+}
+
+.level-1,
+.level-4 {
+  background: #efc16e;
+}
+
+.level-2,
+.level-5 {
+  background: #e9a5aa;
+}
+
+.level-3 {
+  background: #bba5df;
+}
+
+.garden-level-button.currently-playing {
+  box-shadow:
+    0 5px 0 rgba(100, 90, 70, 0.15),
+    0 0 0 5px rgba(255, 255, 255, 0.45);
+}
+
+.playing-companions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  width: 145px;
+  height: 100px;
+  margin-bottom: 5px;
+  pointer-events: none;
+}
+
+.playing-character {
+  width: 78px;
+  height: 100px;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+.playing-milo {
+  width: 66px;
+  height: 75px;
+  object-fit: contain;
+  object-position: bottom;
+  margin-left: -12px;
+}
+
+@media (max-width: 600px) {
+  .garden-level-button {
+    width: 52px;
+    height: 52px;
+    font-size: 23px;
+    border-width: 3px;
+  }
+
+  .playing-companions {
+    width: 100px;
+    height: 68px;
+    margin-bottom: 3px;
+  }
+
+  .playing-character {
+    width: 55px;
+    height: 68px;
+  }
+
+  .playing-milo {
+    width: 48px;
+    height: 52px;
+    margin-left: -10px;
+  }
+}
+/* Larger characters and star buttons on the garden map */
+.garden-level-position,
+.playing-companions {
+  overflow: visible;
+}
+
+.playing-character {
+  scale: 3;
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.playing-milo {
+  scale: 2;
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.garden-level-button {
+  scale: 2;
+  border-radius: 0;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+/* Garden map size and shape overrides */
+.garden-world .playing-character {
+  transform: scale(1) !important;
+  transform-origin: bottom center !important;
+  z-index: 20 !important;
+}
+
+.garden-world .playing-milo {
+  transform: scale(1) !important;
+  transform-origin: bottom center !important;
+  z-index: 20 !important;
+}
+
+.garden-world .garden-level-button {
+  transform: scale(1) !important;
+  border-radius: 0 !important;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  ) !important;
+}
+.garden-world .garden-level-position {
+  position: absolute;
+  overflow: visible;
+}
+
+.garden-world .playing-companions {
+  position: absolute !important;
+  left: calc(100% + 12px) !important;
+  right: auto !important;
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 20;
+}
+
+.garden-world .playing-character,
+.garden-world .playing-milo {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: 0 !important;
+}
+/* MILO AI Parent Guide */
+.milo-parent-guide {
+  max-width: 900px;
+}
+
+.milo-guide-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.milo-guide-heading img {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  object-fit: contain;
+}
+
+.milo-guide-heading h2 {
+  margin: 5px 0;
+}
+
+.milo-guide-heading p {
+  margin: 4px 0 0;
+}
+
+.milo-guide-form {
+  display: grid;
+  gap: 10px;
+}
+
+.milo-guide-form label {
+  color: #44445c;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.milo-guide-form textarea,
+.milo-guide-form input,
+.milo-guide-form select {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px;
+  border: 1px solid #dedce8;
+  border-radius: 12px;
+  background: #fff;
+  color: #30314d;
+}
+
+.milo-guide-form textarea {
+  min-height: 115px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.milo-guide-form small {
+  color: #858698;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.milo-guide-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 5px 0 10px;
+}
+
+.milo-guide-examples button,
+.milo-guide-error button {
+  padding: 8px 11px;
+  border: 1px solid #dedcf3;
+  border-radius: 18px;
+  background: #f7f6ff;
+  color: #4a57cf;
+  font-size: 11px;
+  text-align: left;
+}
+
+.milo-guide-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.milo-guide-options > div {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+}
+
+.milo-guide-submit {
+  justify-self: start;
+  min-width: 150px;
+  margin-top: 8px;
+}
+
+.milo-guide-submit:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.milo-guide-status {
+  margin: 0;
+  color: #6870ce;
+  font-size: 12px;
+}
+
+.milo-guide-error {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fff2eb;
+  color: #875640;
+}
+
+.milo-guide-error p {
+  margin: 0 0 8px;
+}
+
+.milo-guide-response {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid #d8e7d7;
+  border-radius: 15px;
+  background: #f7fbf4;
+}
+
+.milo-guide-response h3 {
+  margin: 0 0 12px;
+  color: #28544e;
+  font-size: 17px;
+}
+
+.milo-guide-response > div {
+  color: #4f5d55;
+  font-size: 13px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+}
+
+.milo-guide-disclaimer {
+  margin: 18px 0 0;
+  color: #858698;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+  .milo-guide-heading {
+    align-items: flex-start;
+  }
+
+  .milo-guide-heading img {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+  }
+
+  .milo-guide-options {
+    grid-template-columns: 1fr;
+  }
+
+  .milo-guide-examples {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Caregiver dashboard pages and controls */
+.sidebar-navigation { display: flex; flex-direction: column; gap: 3px; }
+.dashboard-header-actions, .section-heading-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.dashboard-header-actions { position: relative; }
+.sidebar-link { width: 100%; }
+.secondary-button, .text-button, .icon-button, .toggle-switch { font: inherit; cursor: pointer; }
+.secondary-button { min-height: 40px; padding: 10px 15px; border: 1px solid #dfe5d7; border-radius: 12px; background: #fffdf8; color: #53684a; font-weight: 800; }
+.secondary-button:hover { background: #f2f5eb; }
+.text-button { border: 0; background: transparent; color: #63784f; font-weight: 800; }
+.section-heading-row > div > p { margin-top: 3px; }
+.profile-detail-card { max-width: 100%; }
+.dashboard-quick-progress { margin-top: 20px; }
+.quick-progress-card { display: flex; align-items: center; gap: 16px; padding: 16px; border: 1px solid #e9e7dc; border-radius: 16px; background: #fff; }
+.quick-progress-icon { font-size: 30px; }
+.quick-progress-copy { flex: 1; display: grid; gap: 10px; }
+.quick-progress-copy strong { color: #384f3e; }
+.quick-progress-percent { font-weight: 900; color: #637c52; }
+.progress-overview { background: #fffdf8; }
+.progress-summary-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 16px; }
+.progress-summary-row > div { display: grid; gap: 4px; padding: 15px; border: 1px solid #e7e8dc; border-radius: 14px; background: #fbfcf6; }
+.progress-summary-row strong { color: #536c47; font-size: 24px; }
+.progress-summary-row span { color: #7a8170; font-size: 12px; }
+.large-progress-track { height: 10px; }
+.large-progress-track span { background: #9eb58a; transition: width 240ms ease; }
+.progress-moment-grid, .skill-grid, .recommendation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+.progress-moment-card, .skill-card, .recommendation-card { border: 1px solid #e9e7dc; border-radius: 16px; background: #fffdf8; }
+.progress-moment-card { display: flex; gap: 13px; align-items: flex-start; padding: 17px; }
+.moment-icon, .recommendation-icon { font-size: 27px; }
+.progress-moment-card h3, .skill-card h3, .recommendation-card h3 { margin: 0 0 6px; color: #405741; font-size: 16px; }
+.progress-moment-card p, .recommendation-card p { margin: 0 0 7px; }
+.progress-moment-card small, .skill-card small { color: #77806f; }
+.skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skill-card { padding: 18px; }
+.skill-card > span { display: block; margin-bottom: 12px; font-size: 25px; }
+.skill-card.skill-ready { border-color: #bfd0ae; background: #f3f7ec; }
+.recommendation-grid { grid-template-columns: 1fr; }
+.recommendation-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; padding: 18px; }
+.recommendation-card small { color: #929d7e; font-size: 10px; font-weight: 900; letter-spacing: 1px; }
+.recommendation-card .secondary-button { white-space: nowrap; }
+.learning-timeline { max-width: 760px; margin: 24px 0 0; padding: 0; list-style: none; }
+.timeline-entry { position: relative; display: grid; grid-template-columns: 30px 1fr; gap: 13px; padding-bottom: 20px; }
+.timeline-entry:not(:last-child)::before { position: absolute; top: 25px; bottom: 0; left: 14px; width: 2px; background: #e2e8d9; content: ""; }
+.timeline-dot { z-index: 1; display: grid; width: 29px; height: 29px; place-items: center; border-radius: 50%; background: #eaf1e1; color: #698355; font-weight: 900; }
+.timeline-entry article { padding: 16px; border: 1px solid #e9e7dc; border-radius: 14px; background: #fffdf8; }
+.timeline-date { color: #929d7e; font-size: 11px; font-weight: 800; }
+.timeline-entry h3 { margin: 5px 0; color: #405741; }
+.timeline-entry p { margin: 4px 0; }
+.timeline-entry small { color: #77806f; }
+.setting-control { display: flex; align-items: center; }
+.setting-control select { max-width: 130px; padding: 8px; border: 1px solid #dfe5d7; border-radius: 9px; background: #fff; color: #53684a; }
+.toggle-switch { position: relative; width: 46px; height: 27px; padding: 3px; border: 0; border-radius: 20px; background: #c9ccc1; transition: background .18s ease; }
+.toggle-switch span { display: block; width: 21px; height: 21px; border-radius: 50%; background: white; transition: transform .18s ease; }
+.toggle-switch.is-on { background: #91a77c; }
+.toggle-switch.is-on span { transform: translateX(19px); }
+.notification-wrap { position: relative; }
+.icon-button { position: relative; width: 40px; height: 40px; border: 1px solid #e4e6dc; border-radius: 50%; background: #fff; color: #60764f; font-size: 20px; }
+.icon-button i { position: absolute; top: 6px; right: 7px; width: 8px; height: 8px; border-radius: 50%; background: #d8a75e; }
+.notification-popover { position: absolute; z-index: 10; top: 48px; right: 0; width: min(280px, 80vw); padding: 15px; border: 1px solid #e6e5dc; border-radius: 14px; background: #fffdf8; box-shadow: 0 12px 32px #25351f18; }
+.notification-popover strong { color: #405741; }
+.notification-popover p { margin: 6px 0 0; color: #747c6b; font-size: 12px; line-height: 1.6; }
+.theme-soft { background: #f2f7ee; }
+.theme-lavender { background: #f5f1fa; }
+.theme-soft .dashboard, .theme-lavender .dashboard { background: transparent; }
+.theme-soft .sidebar, .theme-lavender .sidebar { background: rgb(255 255 255 / 90%); }
+.theme-soft .dashboard-main, .theme-lavender .dashboard-main { background: transparent; }
+@media (max-width: 850px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; padding: 14px 16px; border-right: 0; border-bottom: 1px solid #eae8f0; }
+  .dashboard-brand { margin: 0 0 8px; }
+  .sidebar-navigation { display: flex; flex-direction: row; overflow-x: auto; padding-bottom: 4px; }
+  .sidebar-link { flex: 0 0 auto; width: auto; }
+  .sidebar-bottom { display: none; }
+  .dashboard-main { padding-top: 24px; }
+}
+@media (max-width: 600px) {
+  .progress-summary-row, .skill-grid { grid-template-columns: 1fr; }
+  .recommendation-card { grid-template-columns: auto 1fr; }
+  .recommendation-card .secondary-button { grid-column: 2; justify-self: start; }
+  .dashboard-header, .section-heading-row { align-items: flex-start; flex-direction: column; }
+  .dashboard-header-actions { width: 100%; justify-content: flex-end; }
+  .settings-grid { grid-template-columns: 1fr; }
+}
+
+
+.timeline-entry-card { margin: 14px 0; padding: 16px; border: 1px solid #e9e7dc; border-radius: 14px; background: #fffdf8; }
+.timeline-entry-card h3 { margin: 6px 0; color: #405741; }
+.timeline-entry-card p { margin: 5px 0; }
+.garden-home-button {
+  position: fixed;
+  z-index: 100;
+  top: 16px;
+  right: 18px;
+  padding: 11px 16px;
+  border: 1px solid #dfe5d3;
+  border-radius: 14px;
+  background: #fffdf8;
+  color: #627651;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgb(36 77 73 / 12%);
+}
+
+.garden-home-button:hover {
+  background: #f3f5ec;
+}
+
+@media (max-width: 600px) {
+  .garden-home-button {
+    top: 10px;
+    right: 10px;
+    padding: 9px 12px;
+  }
+}

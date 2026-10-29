@@ -1,7 +1,8 @@
 
 import { getRandomFallback } from "../data/miloFallbacks";
 
-const SERVER_URL = "http://localhost:5000/api/milo";
+const SERVER_URL =
+  import.meta.env.VITE_MILO_API_URL || "http://localhost:5000/api/milo";
 
 async function postWithFallback(endpoint, body, fallbackCategory, fallbackKey = null) {
   try {

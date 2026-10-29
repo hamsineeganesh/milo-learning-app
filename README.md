@@ -1,32 +1,34 @@
-# MILO — Neurodivergent Children's Learning Adventure
+ MILO
 
-A gentle, accessible, neurodivergent-friendly educational game featuring illustrated animations, companion tracking with Milo the puppy, and a comprehensive caregiver dashboard.
+MILO is a gen AI-powered, story-led web application that brings learning and caregiver support together.
+It brings interactive stories, practical activities, and caregiver progress information together in one platform.
+It combines social skills, practical life skills, and subject learning in engaging adventures.
+MILO aims to help caregivers better understand and support their child, while offering flexible pacing and levels of challenge to suit different learning preferences and sensory needs.
 
-## 🌸 Features
+## Links
 
-1. **Caregiver & Child Flow**:
-   - Initial Caregiver setup tile and dashboard.
-   - Comprehensive caregiver tools: Child Profile, Progress & Growth tracking, Personalization settings, and gentle Recommendations.
-2. **Character Selection**:
-   - 4 unique illustrated adventure companions (Mira, Piper, Kai, Leo).
-   - Puppy Milo stays with the selected character throughout every screen.
-3. **Vertically Scrollable Level Map**:
-   - Fitted seamlessly to laptop screen widths with a hidden scrollbar.
-   - Dynamic player marker displaying the chosen character and Milo beside the unlocked level.
-4. **Illustrated Story Animation — Level 1: "The Little Seed"**:
-   - High-fidelity garden scene illustration.
-   - Synchronized character dialogue bubbles with active speaker indicators (Girl on the left, Grandpa on the right).
-   - Interactive planting, watering can animations, and multi-stage seed growth.
-   - Positive reinforcement badge and level progression.
+- **Live app:** https://milo-learning-app-0cei.onrender.com/
+- **Source code:** https://github.com/hamsineeganesh/milo-learning-app
+- **Installation guide:** See `docs/INSTALLATION_GUIDE.md`
 
-## 🚀 How to Run Locally
+The deployed Ask MILO feature is currently **not confirmed working**. The backend is deployed, but the Parent Guide request still needs end-to-end verification. It works when set up and run as localhost.
 
-Simply open `index.html` in any modern web browser, or serve it using any local static server:
+Features
 
-```bash
-# Using Python
-python -m http.server 8080
+*Track learning progress: Caregivers can view completed levels and learning activity in the dashboard. Progress is saved in the current browser.
+*Set preferences: Caregivers can adjust the available preferences, such as sound, narration, and visual comfort.
+*Story-led interactive learning: Children practise subject knowledge and everyday skills through interactive stories, including planting and smart shopping.
+*Ask MILO (local prototype): Caregivers can ask for AI-generated, personalised suggestions to help support their child; the feature works in the local prototype, the deployed version isstill being resolved.
 
-# Or with VS Code Live Server extension
-```
-Visit `http://localhost:8080/index.html` to play!
+Technology
+
+- React and Vite frontend
+- Express.js backend
+- Gemini API via the server-side `@google/genai` SDK
+- Browser local storage for this prototype's profile and progress
+- Render Static Site for the frontend and Render Web Service for the backend
+
+
+## Data and safety
+
+Profile and progress information are stored in the current browser and are not synced between devices. MILO provides educational support, not diagnosis or medical care. It does not replace advice from a qualified professional.
